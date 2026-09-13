@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Istudent } from '../../model/student-model';
 import { StudentService } from '../../services/student.service';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { GetConfirmComponent } from '../get-confirm/get-confirm.component';
 import { _MatSnackBarContainerBase, MatSnackBar } from '@angular/material/snack-bar';
+import { ScrollToDirective } from '../../directives/scroll-to.directive';
 
 @Component({
   selector: 'app-student-table',
@@ -21,10 +22,12 @@ export class StudentTableComponent implements OnInit {
      console.log(this.getStudent);
   }
 
+  @ViewChild(ScrollToDirective) scrollDirective!:ScrollToDirective;
 
   onEditObj(std:Istudent){
          this._stdService.onEdit(std)
-
+          //  window.scrollTo({})
+            this.scrollDirective.scrollToElement();
   }
 
   onRemove(removeId:number){
@@ -55,5 +58,5 @@ export class StudentTableComponent implements OnInit {
   }
 
 
-  
+
 }

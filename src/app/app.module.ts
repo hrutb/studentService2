@@ -10,6 +10,7 @@ import { StudentTableComponent } from './shared/component/student-table/student-
 import { MaterialModule } from './shared/Module/material.module';
 import { FormsModule } from '@angular/forms';
 import { GetConfirmComponent } from './shared/component/get-confirm/get-confirm.component';
+import { ScrollToDirective } from './shared/directives/scroll-to.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GetConfirmComponent } from './shared/component/get-confirm/get-confirm.
     StudentDashboardComponent,
     StudentFormComponent,
     StudentTableComponent,
-    GetConfirmComponent
+    GetConfirmComponent,
+    ScrollToDirective
   ],
   imports: [
     BrowserModule,
