@@ -1,0 +1,44 @@
+<!-- <p>student-table works!</p>s -->
+<div class="card">
+   <div class="card-header bg-primary"></div>
+   <div class="card-body">
+      <div class="table-responsive">
+            <table class="table table-bordered" *ngIf="getStudent.length>0 ; else NoStudent">
+               <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Full name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>City</th>
+                      <th>Is Active</th>
+                      <th>Edit</th>
+                      <th>Remove</th>
+                    </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let std of getStudent; index as i">
+                     <td>{{i+1}}</td>
+                     <td>{{std.fname}} {{std.lname}}</td>
+                     <td>{{std.email}}</td>
+                     <td>{{std.contact}}</td>
+                     <td>{{std.city}}</td>
+                     <td> <span class="text-light badge" [ngClass]="{
+                          'bg-success':std.isActive===true ,
+                          'bg-warning':std.isActive===false
+                     }">{{std.isActive ? "YES":"No"}}</span></td>
+                     <td><button mat-stroked-button color="primary" (click)="onEditObj(std)">Edit</button></td>
+                     <td><button mat-stroked-button  (click)="onRemove(std.id)" color="warn">Remove</button></td>
+                  </tr>
+               </tbody>
+            </table>
+            
+            <ng-template #NoStudent>
+                <p class="alert alert-info">No student  is available</p>
+
+            </ng-template>
+            <!-- <template></template> -->
+      </div>
+
+   </div>
+</div>
